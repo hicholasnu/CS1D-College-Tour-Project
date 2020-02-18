@@ -1,0 +1,126 @@
+Reading from file
+Totaling 110
+
+Planning Trip #1: Starting at Arizona State Universityand trying to find 14 colleges.
+#1) We will go FROM "Arizona State University"
+		TO  "University of California, Irvine (UCI)"
+Which is 375  miles away
+
+#2) We will go FROM "University of California, Irvine (UCI)"
+		TO  "Saddleback College"
+Which is 16  miles away
+
+#3) We will go FROM "Saddleback College"
+		TO  "University of California, Los Angeles (UCLA)"
+Which is 66  miles away
+
+#4) We will go FROM "University of California, Los Angeles (UCLA)"
+		TO  "University of the Pacific"
+Which is 333  miles away
+
+#5) We will go FROM "University of the Pacific"
+		TO  "University of Oregon"
+Which is 517  miles away
+
+#6) We will go FROM "University of Oregon"
+		TO  "University of Wisconsin"
+Which is 2111  miles away
+
+#7) We will go FROM "University of Wisconsin"
+		TO  "Northwestern"
+Which is 145  miles away
+
+#8) We will go FROM "Northwestern"
+		TO  "University of Michigan"
+Which is 270  miles away
+
+#9) We will go FROM "University of Michigan"
+		TO  "Ohio State University"
+Which is 184  miles away
+
+#10) We will go FROM "Ohio State University"
+		TO  "Massachusetts Institute of Technology (MIT)"
+Which is 772  miles away
+
+Planning Trip #2: Starting at University of California, Irvine (UCI)and trying to find 11 colleges.
+#1) We will go FROM "University of California, Irvine (UCI)"
+		TO  "Saddleback College"
+Which is 16  miles away
+
+#2) We will go FROM "Saddleback College"
+		TO  "University of California, Los Angeles (UCLA)"
+Which is 66  miles away
+
+#3) We will go FROM "University of California, Los Angeles (UCLA)"
+		TO  "University of the Pacific"
+Which is 333  miles away
+
+#4) We will go FROM "University of the Pacific"
+		TO  "University of Oregon"
+Which is 517  miles away
+
+#5) We will go FROM "University of Oregon"
+		TO  "Arizona State University"
+Which is 1343  miles away
+
+#6) We will go FROM "Arizona State University"
+		TO  "University of Wisconsin"
+Which is 1684  miles away
+
+#7) We will go FROM "University of Wisconsin"
+		TO  "Northwestern"
+Which is 145  miles away
+
+#8) We will go FROM "Northwestern"
+		TO  "University of Michigan"
+Which is 270  miles away
+
+#9) We will go FROM "University of Michigan"
+		TO  "Ohio State University"
+Which is 184  miles away
+
+#10) We will go FROM "Ohio State University"
+		TO  "Massachusetts Institute of Technology (MIT)"
+Which is 772  miles away
+
+Planning Trip #3: Starting at Saddleback Collegeand trying to find 13 colleges.
+#1) We will go FROM "Saddleback College"
+		TO  "University of California, Irvine (UCI)"
+Which is 16  miles away
+
+#2) We will go FROM "University of California, Irvine (UCI)"
+		TO  "University of California, Los Angeles (UCLA)"
+Which is 51  miles away
+
+#3) We will go FROM "University of California, Los Angeles (UCLA)"
+		TO  "University of the Pacific"
+Which is 333  miles away
+
+#4) We will go FROM "University of the Pacific"
+		TO  "University of Oregon"
+Which is 517  miles away
+
+#5) We will go FROM "University of Oregon"
+		TO  "Arizona State University"
+Which is 1343  miles away
+
+#6) We will go FROM "Arizona State University"
+		TO  "University of Wisconsin"
+Which is 1684  miles away
+
+#7) We will go FROM "University of Wisconsin"
+		TO  "Northwestern"
+Which is 145  miles away
+
+#8) We will go FROM "Northwestern"
+		TO  "University of Michigan"
+Which is 270  miles away
+
+#9) We will go FROM "University of Michigan"
+		TO  "Ohio State University"
+Which is 184  miles away
+
+#10) We will go FROM "Ohio State University"
+		TO  "Massachusetts Institute of Technology (MIT)"
+Which is 772  miles away
+
