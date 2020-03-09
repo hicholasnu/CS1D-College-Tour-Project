@@ -126,25 +126,40 @@ void MainWindow::on_backcollegedisplay_clicked()
 
 void MainWindow::on_AddSouvenirbtn_clicked()
 {
-    QString Item;
-    QString Price;
-    QString College;
 
-    College = ui->CollegeLine->text();
-    Price = ui->PriceLine->text();
-    Item = ui->ItemLine->text();
+    if (ui->ItemLine->text() == "") {
 
-    m_controller->createSouvenir(College,Item,Price);
+        QMessageBox::warning(this, "Error", "Item has no name.");
+    }
+    else {
 
-    ui->CollegeLine->clear();
-    ui->PriceLine->clear();
-    ui->ItemLine->clear();
+        QString Item;
+        QString Price;
+        QString College;
+        double intPrice;
+
+        College = ui->souvenircomboBox->currentText();
+        Item = ui->ItemLine->text();
+        intPrice = ui->spinBoxDollars->value() + (ui->spinBoxCents->value() / 100.0);
+        Price = QString::number(intPrice);
+
+        m_controller->createSouvenir(College,Item,Price);
+
+        ui->ItemLine->clear();
+        ui->spinBoxDollars->setValue(0);
+        ui->spinBoxCents->setValue(0);
+
+        ui->SouvenirView->setModel(m_controller->getSouvenirQueryModel(ui->souvenircomboBox->currentText()));
+        ui->SouvenirView->resizeColumnsToContents();
+    }
 }
 
 
 void MainWindow::on_displaysouvenirs_clicked()
 {
     ui->stackedWidget->setCurrentWidget(ui->Souvenirs);
+    ui->SouvenirView->setModel(m_controller->getSouvenirQueryModel(ui->souvenircomboBox->currentText()));
+    ui->SouvenirView->resizeColumnsToContents();
 }
 
 void MainWindow::on_SouvenirView_activated(const QModelIndex &index)
@@ -155,8 +170,12 @@ void MainWindow::on_SouvenirView_activated(const QModelIndex &index)
     {
         QSqlQuery qry;
         name = index.data().toString();
-        QString price;
+        double price;
+        int dollars;
+        int cents;
         QString college;
+
+
         ui->editsouvenirlbl2->setText(name);
 
         qry.prepare("Select * from Souvenirs where Item = '"+name+"'");
@@ -166,8 +185,12 @@ void MainWindow::on_SouvenirView_activated(const QModelIndex &index)
             while(qry.next())
             {
                 college = qry.value(0).toString();
-                price = qry.value(2).toString();
-                ui->priceeditsouvenir->setText(price);
+                price = qry.value(2).toDouble();
+
+                dollars = int(price);
+                cents = (price - int(price)) * 100;
+                ui->spinBoxDollars_2->setValue(dollars);
+                ui->spinBoxCents_2->setValue(cents);
                 ui->editsouvenirlbl1->setText(college);
 
             }
@@ -178,20 +201,59 @@ void MainWindow::on_SouvenirView_activated(const QModelIndex &index)
 
 void MainWindow::on_Deletesouvenirbtn_clicked()
 {
-    QString name = ui->editsouvenirlbl2->text();
-    m_controller->deleteSouvenir(name);
-    ui->editsouvenirlbl1->clear();
-    ui->editsouvenirlbl2->clear();
-    ui->priceeditsouvenir->clear();
+    if (ui->editsouvenirlbl1->text() == "College" &&
+            ui->editsouvenirlbl2->text() == "Item Name") {
+
+        QMessageBox::warning(this, "Error", "No item selected.");
+    }
+
+    else {
+
+        QMessageBox::StandardButton reply =
+                QMessageBox::question(this, "Deletion", "Sure to delete?",
+                                      QMessageBox::Yes | QMessageBox::No);
+        QString name = ui->editsouvenirlbl2->text();
+
+        if (reply == QMessageBox::Yes) {
+
+            m_controller->deleteSouvenir(name);
+            ui->editsouvenirlbl1->setText("College");
+            ui->editsouvenirlbl2->setText("Item Name");
+            ui->spinBoxDollars_2->setValue(0);
+            ui->spinBoxCents_2->setValue(0);
+
+            ui->SouvenirView->setModel(m_controller->getSouvenirQueryModel(ui->souvenircomboBox->currentText()));
+            ui->SouvenirView->resizeColumnsToContents();
+        }
+    }
 }
 
 void MainWindow::on_EditSouvenirbtn_clicked()
 {
-    m_controller->updateSouvenir(ui->editsouvenirlbl2->text(),ui->editsouvenirlbl1->text(),ui->priceeditsouvenir->text());
 
-    ui->editsouvenirlbl1->clear();
-    ui->editsouvenirlbl2->clear();
-    ui->priceeditsouvenir->clear();
+    if (ui->editsouvenirlbl1->text() == "College" &&
+            ui->editsouvenirlbl2->text() == "Item Name") {
+
+        QMessageBox::warning(this, "Error", "No item selected.");
+    }
+    else {
+
+        QString Price;
+        double intPrice;
+
+        intPrice = ui->spinBoxDollars_2->value() + (ui->spinBoxCents_2->value() / 100.0);
+        Price = QString::number(intPrice);
+
+        m_controller->updateSouvenir(ui->editsouvenirlbl2->text(),ui->editsouvenirlbl1->text(), Price);
+
+        ui->editsouvenirlbl1->setText("College");
+        ui->editsouvenirlbl2->setText("Item Name");
+        ui->spinBoxDollars_2->setValue(0);
+        ui->spinBoxCents_2->setValue(0);
+
+        ui->SouvenirView->setModel(m_controller->getSouvenirQueryModel(ui->souvenircomboBox->currentText()));
+        ui->SouvenirView->resizeColumnsToContents();
+    }
 }
 
 void MainWindow::on_backsouvenir_clicked()
@@ -226,6 +288,7 @@ void MainWindow::additemstocombobox()
     ui->Collegecampusdrop->clear();
     ui->shortesttripcombo->clear();
     ui->souvenircomboBox->clear();
+//    ui->comboBoxChooseCollege->clear();
 
     QList<QString>colleges;
     for (int i=0; i < m_controller->listOfColleges.count(); i++)
@@ -236,6 +299,7 @@ void MainWindow::additemstocombobox()
     ui->Collegecampusdrop->addItems(colleges);
     ui->shortesttripcombo->addItems(colleges);
     ui->souvenircomboBox->addItems(colleges);
+//    ui->comboBoxChooseCollege->addItems(colleges);
 }
 void MainWindow::additemstocomboboxcheck(QString item)
 {
@@ -379,6 +443,7 @@ void MainWindow::on_souvenircomboBox_activated(const QString &arg1)
     ui->SouvenirView->setModel(m_controller->getSouvenirQueryModel(arg1));
     ui->SouvenirView->resizeColumnsToContents();
 }
+
 void MainWindow::on_CalSouv_clicked()
 {
 
@@ -409,3 +474,5 @@ void MainWindow::on_Clearcalc_clicked()
     }
     ui->grandTotal->clear();
 }
+
+

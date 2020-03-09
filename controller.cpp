@@ -154,6 +154,7 @@ QSqlQueryModel *Controller::getSouvenirQueryModel(QString college)
 
     return model;
 }
+
 void Controller::createSouvenir(QString m_college, QString m_item,QString m_price)
 {
     // Step 1
