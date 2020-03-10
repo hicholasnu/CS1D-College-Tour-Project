@@ -14,9 +14,9 @@ MainWindow::MainWindow(Controller *controller, QWidget *parent)
     ui->setupUi(this);
     ui->stackedWidget->setCurrentWidget(ui->Login);
     QPixmap pix("/Users/mohamedsoliman/Desktop/Logo.png");
-    int w = ui ->logo->width();
-    int h = ui ->logo->height();
-    ui->logo->setPixmap(pix.scaled(w,h,Qt::KeepAspectRatio));
+//    int w = ui ->logo->width();
+//    int h = ui ->logo->height();
+//    ui->logo->setPixmap(pix.scaled(w,h,Qt::KeepAspectRatio));
 
     ui->Login->setMinimumSize(600, 600);   // args are (width, height) in pixels
      // This sets the minimum size (pixels) of the main window. It cannot be shrunk smaller than those values.
@@ -131,6 +131,11 @@ void MainWindow::on_AddSouvenirbtn_clicked()
 
         QMessageBox::warning(this, "Error", "Item has no name.");
     }
+    else if(ui->spinBoxDollars->value() == 0 &&
+            ui->spinBoxCents->value() == 0) {
+
+        QMessageBox::warning(this, "Error", "Item can not cost $0.00.");
+    }
     else {
 
         QString Item;
@@ -165,20 +170,22 @@ void MainWindow::on_displaysouvenirs_clicked()
 void MainWindow::on_SouvenirView_activated(const QModelIndex &index)
 {
     QString name;
+    QString selectCollege;
 
     if(index.isValid())
     {
         QSqlQuery qry;
         name = index.data().toString();
+        selectCollege = ui->souvenircomboBox->currentText();
         double price;
         int dollars;
         int cents;
+        QString Price;
         QString college;
-
 
         ui->editsouvenirlbl2->setText(name);
 
-        qry.prepare("Select * from Souvenirs where Item = '"+name+"'");
+        qry.prepare("Select * from Souvenirs where Item = '"+name+"' and College = '"+selectCollege+"'");
 
         if (qry.exec())
         {
@@ -186,16 +193,16 @@ void MainWindow::on_SouvenirView_activated(const QModelIndex &index)
             {
                 college = qry.value(0).toString();
                 price = qry.value(2).toDouble();
+                Price = qry.value(2).toString();
 
                 dollars = int(price);
-                cents = (price - int(price)) * 100;
-                ui->spinBoxDollars_2->setValue(dollars);
-                ui->spinBoxCents_2->setValue(cents);
+                cents = int((price - int(price)) * 100);
+                ui->spinBoxDollars_2->setValue(int(dollars));
+                ui->spinBoxCents_2->setValue(int(cents));
                 ui->editsouvenirlbl1->setText(college);
-
+                ui->TESTLABEL->setText(Price);
             }
         }
-
     }
 }
 
@@ -236,13 +243,18 @@ void MainWindow::on_EditSouvenirbtn_clicked()
 
         QMessageBox::warning(this, "Error", "No item selected.");
     }
+    else if(ui->spinBoxDollars_2->value() == 0 &&
+            ui->spinBoxCents_2->value() == 0) {
+
+        QMessageBox::warning(this, "Error", "Item can not cost $0.00.");
+    }
     else {
 
         QString Price;
-        double intPrice;
+        double doublePrice;
 
-        intPrice = ui->spinBoxDollars_2->value() + (ui->spinBoxCents_2->value() / 100.0);
-        Price = QString::number(intPrice);
+        doublePrice = ui->spinBoxDollars_2->value() + (ui->spinBoxCents_2->value() / 100.0);
+        Price = QString::number(doublePrice);
 
         m_controller->updateSouvenir(ui->editsouvenirlbl2->text(),ui->editsouvenirlbl1->text(), Price);
 
