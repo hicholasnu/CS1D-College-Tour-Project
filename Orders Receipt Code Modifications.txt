@@ -1,0 +1,76 @@
+/*
+
+Need to create a QTableWidget in the UI called OrderReceipt
+
+*/
+
+void MainWindow::on_CalSouv_clicked()
+{
+//Lawrence: Added Code  {
+
+    QString tarCollege, tarItem, tarPrice;
+    int val, ordersCount = 0;   // Declared int val up here
+
+    ui->OrderReceipt->clear();
+    ui->OrderReceipt->setRowCount(0);
+    ui->OrderReceipt->setColumnCount(3);
+
+//Lawrence: END Added Code  }
+
+    for(int i = 0; i< tourSouv.count(); i++)
+    {
+
+        val = static_cast<QSpinBox*>(ui->SouvenirTableWidget->cellWidget(i,3))->value();
+        QTableWidgetItem *price = ui->SouvenirTableWidget->item(i,2);
+        totalSouvenirprice = totalSouvenirprice + (price->text().toFloat()*val);
+
+//Lawrence: Added Code  {
+        if(val > 0)
+        {
+            //Grab the text from the shopping list
+            tarCollege = ui->SouvenirTableWidget->item(i,0)->text();
+            tarItem = ui->SouvenirTableWidget->item(i,1)->text();
+            tarPrice = ui->SouvenirTableWidget->item(i,2)->text();
+
+            QTableWidgetItem *collegeName = new QTableWidgetItem();
+            QTableWidgetItem *itemName = new QTableWidgetItem();
+            QTableWidgetItem *price = new QTableWidgetItem();
+
+            collegeName->setText(tarCollege);
+            itemName->setText(tarItem);
+            price->setText(tarPrice);
+
+             ui->OrderReceipt->insertRow(ordersCount);
+
+            ui->OrderReceipt->setItem(ordersCount,0,collegeName);
+            ui->OrderReceipt->setItem(ordersCount,1,itemName);
+            ui->OrderReceipt->setItem(ordersCount,2,price);
+
+            ordersCount++;
+        }
+//Lawrence: END Added Code  }
+    }
+
+    ui->grandTotal->setNum(totalSouvenirprice);
+
+    totalSouvenirprice = 0;
+}
+
+void MainWindow::on_Clearcalc_clicked()
+{
+    for(int i = 0;i< tourSouv.count();i++)
+    {
+        QSpinBox *box = static_cast<QSpinBox*>(ui->SouvenirTableWidget->cellWidget(i,3));
+        box->setValue(0);
+    }
+    ui->grandTotal->clear();
+
+//Lawrence: Added Code OPTIONAL: It already clears it whenever the calculate button is clicked
+
+    ui->OrderReceipt->clear();
+    ui->OrderReceipt->setRowCount(0);
+    ui->OrderReceipt->setColumnCount(3);
+
+//Lawrence: END Added Code OPTIONAL
+
+}
