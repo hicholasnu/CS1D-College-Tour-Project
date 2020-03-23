@@ -10,7 +10,7 @@ Controller::Controller(QObject *parent) : QObject(parent)
     // Connecting to database
     m_database = QSqlDatabase::addDatabase("QSQLITE");
     // QString path = QDir::homePath() + "/college.db";
-    QString path = "C://Users//Nicholas//Documents//GitHub//CS1D-College-Tour-Project//college.db";
+    QString path = "C://Users//krist//Documents//GitHub//CS1D-College-Tour-Project//college.db";
     m_database.setDatabaseName(path);
     if(!m_database.open())
     {
