@@ -1,0 +1,97 @@
+\hypertarget{class_controller}{}\doxysection{Controller Class Reference}
+\label{class_controller}\index{Controller@{Controller}}
+Inheritance diagram for Controller\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_controller}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_controller_af888a35f7a377692726d81332edf08ab}{Controller}} (Q\+Object $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_controller_af888a35f7a377692726d81332edf08ab}{Controller\+::\+Controller}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_controller_a536df38104d2eed08a86219807214e54}\label{class_controller_a536df38104d2eed08a86219807214e54}} 
+{\bfseries Controller} (\mbox{\hyperlink{class_controller}{Controller}} \&controller)
+\item 
+\mbox{\Hypertarget{class_controller_a2a20fe07690558054eee09e3c0c04817}\label{class_controller_a2a20fe07690558054eee09e3c0c04817}} 
+void {\bfseries create\+Table} ()
+\item 
+\mbox{\Hypertarget{class_controller_a5715ecae6d515fece799c06f0b0c987a}\label{class_controller_a5715ecae6d515fece799c06f0b0c987a}} 
+void {\bfseries create\+Souvenir} (Q\+String m\+\_\+item, Q\+String m\+\_\+price, Q\+String m\+\_\+college)
+\item 
+\mbox{\Hypertarget{class_controller_a8542fb741f9b3bb16982fbd4bfcac834}\label{class_controller_a8542fb741f9b3bb16982fbd4bfcac834}} 
+void {\bfseries create\+College} (Q\+String start\+College\+Name, Q\+String Distance, Q\+String end\+College\+Name)
+\item 
+\mbox{\Hypertarget{class_controller_a91600fb2f3180c40d36857bd7c767a54}\label{class_controller_a91600fb2f3180c40d36857bd7c767a54}} 
+void {\bfseries delete\+Souvenir} (Q\+String item)
+\item 
+\mbox{\Hypertarget{class_controller_aa1447972b7f6cbafa4f0c4b60bde243f}\label{class_controller_aa1447972b7f6cbafa4f0c4b60bde243f}} 
+void {\bfseries update\+Souvenir} (Q\+String item, Q\+String college, Q\+String price)
+\item 
+\mbox{\Hypertarget{class_controller_a5b30932cf639be284dea1dad2df4b953}\label{class_controller_a5b30932cf639be284dea1dad2df4b953}} 
+Q\+List$<$ \mbox{\hyperlink{class_souvenir}{Souvenir}} $\ast$ $>$ {\bfseries shortest\+Trip} (Q\+String start\+College, int key, Q\+List$<$ Q\+String $>$ \&Colleges\+Visited)
+\item 
+\mbox{\Hypertarget{class_controller_ab244bf81b232bc303400c34f9d2d285f}\label{class_controller_ab244bf81b232bc303400c34f9d2d285f}} 
+Q\+Sql\+Query\+Model $\ast$ {\bfseries getsaddleback\+College\+Query\+Model} ()
+\item 
+\mbox{\Hypertarget{class_controller_abbd57447c5aaff4ed539fa2e4b7807e2}\label{class_controller_abbd57447c5aaff4ed539fa2e4b7807e2}} 
+Q\+Sql\+Query\+Model $\ast$ {\bfseries get\+Souvenir\+Query\+Model} (Q\+String souvenir)
+\item 
+\mbox{\Hypertarget{class_controller_a7f9f9374106fc7d9a631100edd953bcb}\label{class_controller_a7f9f9374106fc7d9a631100edd953bcb}} 
+Q\+Sql\+Query\+Model $\ast$ {\bfseries get\+College\+Query\+Model} ()
+\item 
+\mbox{\Hypertarget{class_controller_af7ed6f590892f30dfdb69be126fa6fd6}\label{class_controller_af7ed6f590892f30dfdb69be126fa6fd6}} 
+Q\+Sql\+Query\+Model $\ast$ {\bfseries get\+College\+Query\+Model1} (Q\+String college)
+\item 
+\mbox{\Hypertarget{class_controller_a96cd42fd0f6e32b15ed35a1b0a2786d2}\label{class_controller_a96cd42fd0f6e32b15ed35a1b0a2786d2}} 
+Q\+Sql\+Query\+Model $\ast$ {\bfseries get\+College\+Querystartonly\+Model} ()
+\item 
+\mbox{\Hypertarget{class_controller_a7852a6a4a5107de97129e913c0ec91e7}\label{class_controller_a7852a6a4a5107de97129e913c0ec91e7}} 
+Q\+Sql\+Query\+Model $\ast$ {\bfseries get\+College\+Querystartonly\+Model1} (Q\+String college)
+\item 
+\mbox{\Hypertarget{class_controller_ab3e15908ef462754f15a84a9754d52cd}\label{class_controller_ab3e15908ef462754f15a84a9754d52cd}} 
+bool {\bfseries readcollege\+File} ()
+\item 
+\mbox{\Hypertarget{class_controller_acaebf930d800775f6d18be24fdd2e868}\label{class_controller_acaebf930d800775f6d18be24fdd2e868}} 
+bool {\bfseries readsouvenir\+File} ()
+\item 
+\mbox{\Hypertarget{class_controller_aa7875d92400246940fb8cadb7616f551}\label{class_controller_aa7875d92400246940fb8cadb7616f551}} 
+void {\bfseries load\+Colleges} ()
+\item 
+\mbox{\Hypertarget{class_controller_a997942178ad8124b6a9b3db6fb1dd00b}\label{class_controller_a997942178ad8124b6a9b3db6fb1dd00b}} 
+void {\bfseries load\+Souvenirs} ()
+\item 
+\mbox{\Hypertarget{class_controller_a81f6375f89b68edf0b57940fc2bae153}\label{class_controller_a81f6375f89b68edf0b57940fc2bae153}} 
+Q\+List$<$ \mbox{\hyperlink{class_souvenir}{Souvenir}} $\ast$ $>$ {\bfseries custom\+Trip} (Q\+String start\+College, Q\+List$<$ Q\+String $>$collegetrips, Q\+List$<$ Q\+String $>$ \&Colleges\+Visited)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_controller_a717c4756e55072e32383dc03ef98225d}\label{class_controller_a717c4756e55072e32383dc03ef98225d}} 
+Q\+List$<$ \mbox{\hyperlink{class_college}{College}} $\ast$ $>$ {\bfseries list\+Of\+Colleges}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_controller_af888a35f7a377692726d81332edf08ab}\label{class_controller_af888a35f7a377692726d81332edf08ab}} 
+\index{Controller@{Controller}!Controller@{Controller}}
+\index{Controller@{Controller}!Controller@{Controller}}
+\doxysubsubsection{\texorpdfstring{Controller()}{Controller()}}
+{\footnotesize\ttfamily Controller\+::\+Controller (\begin{DoxyParamCaption}\item[{Q\+Object $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+\mbox{\hyperlink{class_controller_af888a35f7a377692726d81332edf08ab}{Controller\+::\+Controller}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+controller.\+h\item 
+controller.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,155 @@
+\hypertarget{class_admin}{}\doxysection{Admin Class Reference}
+\label{class_admin}\index{Admin@{Admin}}
+
+
+{\ttfamily \#include $<$admin.\+h$>$}
+
+Inheritance diagram for Admin\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_admin}
+\end{center}
+\end{figure}
+\doxysubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_admin_a19b5ad5e87c3f942f781a23621208d71}\label{class_admin_a19b5ad5e87c3f942f781a23621208d71}} 
+void {\bfseries username\+Changed} ()
+\item 
+\mbox{\Hypertarget{class_admin_a8758e3e3c7004397f3f2ca8a4e7935f7}\label{class_admin_a8758e3e3c7004397f3f2ca8a4e7935f7}} 
+void {\bfseries password\+Changed} ()
+\item 
+\mbox{\Hypertarget{class_admin_a58112020ade9d0d0426ec61ea7a1979e}\label{class_admin_a58112020ade9d0d0426ec61ea7a1979e}} 
+void {\bfseries rank\+Changed} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_admin_ae5c985f5c4fd8f407c1f2e5dda03a6a0}{Admin}} (Q\+Object $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_admin}{Admin}} -\/ Constructor. \end{DoxyCompactList}\item 
+Q\+String \mbox{\hyperlink{class_admin_a1891d3a81abe3c5b0b39ef893ca68c0f}{username}} () const
+\begin{DoxyCompactList}\small\item\em username -\/ a member function that gets the username for the login \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_admin_aaf9a75ad33c9ccf674309a16d5aa4c7c}{set\+Username}} (const Q\+String \&\mbox{\hyperlink{class_admin_a1891d3a81abe3c5b0b39ef893ca68c0f}{username}})
+\begin{DoxyCompactList}\small\item\em set\+Username -\/ a member function that sets the username for the login \end{DoxyCompactList}\item 
+Q\+String \mbox{\hyperlink{class_admin_a7d95a02149bf410bd3575dda5bfd9e76}{password}} () const
+\begin{DoxyCompactList}\small\item\em password -\/ a member function that gets the password for the login \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_admin_acb39dc5459254bac374a6f67249fef16}{set\+Password}} (const Q\+String \&\mbox{\hyperlink{class_admin_a7d95a02149bf410bd3575dda5bfd9e76}{password}})
+\begin{DoxyCompactList}\small\item\em set\+Password -\/ a member funciton that sets the username for the login \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_admin_a2dc995308518446f6a8f15b47fbd367b}{rank}} () const
+\begin{DoxyCompactList}\small\item\em rank -\/ a member function that determins which rank value the user get based on the input \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_admin_a4afff453e0c9b52ad4a5e55d7bf5894a}{set\+Rank}} (int \mbox{\hyperlink{class_admin_a2dc995308518446f6a8f15b47fbd367b}{rank}})
+\begin{DoxyCompactList}\small\item\em set\+Rank -\/ a member funciton that sets the user rank to the program \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+$<$ admin class This class provides the envoirment for login Ui It determines whether the username and password is correct It determines whether the user is administrator or student 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_admin_ae5c985f5c4fd8f407c1f2e5dda03a6a0}\label{class_admin_ae5c985f5c4fd8f407c1f2e5dda03a6a0}} 
+\index{Admin@{Admin}!Admin@{Admin}}
+\index{Admin@{Admin}!Admin@{Admin}}
+\doxysubsubsection{\texorpdfstring{Admin()}{Admin()}}
+{\footnotesize\ttfamily Admin\+::\+Admin (\begin{DoxyParamCaption}\item[{Q\+Object $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+\mbox{\hyperlink{class_admin}{Admin}} -\/ Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_admin_a7d95a02149bf410bd3575dda5bfd9e76}\label{class_admin_a7d95a02149bf410bd3575dda5bfd9e76}} 
+\index{Admin@{Admin}!password@{password}}
+\index{password@{password}!Admin@{Admin}}
+\doxysubsubsection{\texorpdfstring{password()}{password()}}
+{\footnotesize\ttfamily Q\+String Admin\+::password (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+password -\/ a member function that gets the password for the login 
+
+\begin{DoxyReturn}{Returns}
+Q\+String type of value 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_admin_a2dc995308518446f6a8f15b47fbd367b}\label{class_admin_a2dc995308518446f6a8f15b47fbd367b}} 
+\index{Admin@{Admin}!rank@{rank}}
+\index{rank@{rank}!Admin@{Admin}}
+\doxysubsubsection{\texorpdfstring{rank()}{rank()}}
+{\footnotesize\ttfamily int Admin\+::rank (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+rank -\/ a member function that determins which rank value the user get based on the input 
+
+\begin{DoxyReturn}{Returns}
+interger tyoe of value 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_admin_acb39dc5459254bac374a6f67249fef16}\label{class_admin_acb39dc5459254bac374a6f67249fef16}} 
+\index{Admin@{Admin}!setPassword@{setPassword}}
+\index{setPassword@{setPassword}!Admin@{Admin}}
+\doxysubsubsection{\texorpdfstring{setPassword()}{setPassword()}}
+{\footnotesize\ttfamily void Admin\+::set\+Password (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{password }\end{DoxyParamCaption})}
+
+
+
+set\+Password -\/ a member funciton that sets the username for the login 
+
+
+\begin{DoxyParams}{Parameters}
+{\em password} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_admin_a4afff453e0c9b52ad4a5e55d7bf5894a}\label{class_admin_a4afff453e0c9b52ad4a5e55d7bf5894a}} 
+\index{Admin@{Admin}!setRank@{setRank}}
+\index{setRank@{setRank}!Admin@{Admin}}
+\doxysubsubsection{\texorpdfstring{setRank()}{setRank()}}
+{\footnotesize\ttfamily void Admin\+::set\+Rank (\begin{DoxyParamCaption}\item[{int}]{rank }\end{DoxyParamCaption})}
+
+
+
+set\+Rank -\/ a member funciton that sets the user rank to the program 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rank} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_admin_aaf9a75ad33c9ccf674309a16d5aa4c7c}\label{class_admin_aaf9a75ad33c9ccf674309a16d5aa4c7c}} 
+\index{Admin@{Admin}!setUsername@{setUsername}}
+\index{setUsername@{setUsername}!Admin@{Admin}}
+\doxysubsubsection{\texorpdfstring{setUsername()}{setUsername()}}
+{\footnotesize\ttfamily void Admin\+::set\+Username (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{username }\end{DoxyParamCaption})}
+
+
+
+set\+Username -\/ a member function that sets the username for the login 
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_admin_a1891d3a81abe3c5b0b39ef893ca68c0f}\label{class_admin_a1891d3a81abe3c5b0b39ef893ca68c0f}} 
+\index{Admin@{Admin}!username@{username}}
+\index{username@{username}!Admin@{Admin}}
+\doxysubsubsection{\texorpdfstring{username()}{username()}}
+{\footnotesize\ttfamily Q\+String Admin\+::username (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+username -\/ a member function that gets the username for the login 
+
+\begin{DoxyReturn}{Returns}
+Q\+String type of value 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+admin.\+h\item 
+admin.\+cpp\end{DoxyCompactItemize}
