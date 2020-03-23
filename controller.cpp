@@ -122,6 +122,22 @@ QSqlQueryModel *Controller::getCollegeQueryModel()
     return model;
 }
 
+QSqlQueryModel *Controller::getCollegeQueryModel1(QString college) {
+
+    QSqlQueryModel* model = new QSqlQueryModel();
+
+    QSqlQuery qry;
+    qry.prepare("select EndCollege, Distance from College WHERE StartCollege = '"+college+"' ;");
+    if (!qry.exec()) {
+
+        qDebug() << "error Loading values to db" << endl;
+    }
+
+    model->setQuery(qry);
+
+    return model;
+}
+
 QSqlQueryModel *Controller::getCollegeQuerystartonlyModel()
 {
     QSqlQueryModel* model = new QSqlQueryModel();
@@ -132,6 +148,22 @@ QSqlQueryModel *Controller::getCollegeQuerystartonlyModel()
     {
         qDebug() <<"error Loading values to db" << endl;
 
+    }
+
+    model->setQuery(qry);
+
+    return model;
+}
+
+QSqlQueryModel *Controller::getCollegeQuerystartonlyModel1(QString college) {
+
+    QSqlQueryModel* model = new QSqlQueryModel();
+
+    QSqlQuery qry;
+    qry.prepare("select StartCollege from College WHERE College != '"+college+"'; ");
+    if (!qry.exec()) {
+
+        qDebug() << "ERROR";
     }
 
     model->setQuery(qry);
@@ -298,6 +330,7 @@ bool Controller::readcollegeFile()
 bool Controller::readsouvenirFile()
 {
     QString file_name = QFileDialog::getOpenFileName(nullptr, "Open Record File",QDir::homePath());
+    // QString file_name = "C://Users//Nicholas//Documents//GitHub//CS1D-College-Tour-Project//Souvenirs.txt";
 
 
     QFile file(file_name);

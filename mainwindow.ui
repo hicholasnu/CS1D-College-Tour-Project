@@ -21,7 +21,7 @@
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>7</number>
+       <number>6</number>
       </property>
       <widget class="QWidget" name="Login">
        <property name="autoFillBackground">
@@ -176,9 +176,9 @@
        <widget class="QTableView" name="collegedisplay">
         <property name="geometry">
          <rect>
-          <x>40</x>
-          <y>61</y>
-          <width>691</width>
+          <x>0</x>
+          <y>40</y>
+          <width>701</width>
           <height>261</height>
          </rect>
         </property>
@@ -186,7 +186,7 @@
        <widget class="QPushButton" name="backcollegedisplay">
         <property name="geometry">
          <rect>
-          <x>230</x>
+          <x>30</x>
           <y>450</y>
           <width>291</width>
           <height>32</height>
@@ -196,38 +196,54 @@
          <string>Back</string>
         </property>
        </widget>
-       <widget class="QWidget" name="layoutWidget">
+       <widget class="QPushButton" name="viewdistance">
         <property name="geometry">
          <rect>
-          <x>180</x>
-          <y>340</y>
-          <width>381</width>
-          <height>100</height>
+          <x>20</x>
+          <y>320</y>
+          <width>211</width>
+          <height>31</height>
          </rect>
         </property>
-        <layout class="QVBoxLayout" name="verticalLayout_9">
-         <item>
-          <widget class="QPushButton" name="viewdistance">
-           <property name="text">
-            <string>View Distance from Saddleback</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="viewallcolleges">
-           <property name="text">
-            <string>View all colleges</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="loadcolleges">
-           <property name="text">
-            <string>Load Colleges</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
+        <property name="text">
+         <string>View Distance from Saddleback</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="viewallcolleges">
+        <property name="geometry">
+         <rect>
+          <x>250</x>
+          <y>320</y>
+          <width>211</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>View all colleges</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="loadcolleges">
+        <property name="geometry">
+         <rect>
+          <x>420</x>
+          <y>450</y>
+          <width>221</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Load Colleges</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="viewCollegesComboBox">
+        <property name="geometry">
+         <rect>
+          <x>480</x>
+          <y>320</y>
+          <width>211</width>
+          <height>31</height>
+         </rect>
+        </property>
        </widget>
       </widget>
       <widget class="QWidget" name="Souvenirs">
@@ -268,7 +284,7 @@
         <property name="geometry">
          <rect>
           <x>300</x>
-          <y>450</y>
+          <y>360</y>
           <width>51</width>
           <height>31</height>
          </rect>
@@ -329,54 +345,6 @@
          <string>Load Souvenir File</string>
         </property>
        </widget>
-       <widget class="QLabel" name="labelDot">
-        <property name="enabled">
-         <bool>true</bool>
-        </property>
-        <property name="geometry">
-         <rect>
-          <x>540</x>
-          <y>410</y>
-          <width>47</width>
-          <height>49</height>
-         </rect>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>47</width>
-          <height>16777215</height>
-         </size>
-        </property>
-        <property name="text">
-         <string>.</string>
-        </property>
-       </widget>
-       <widget class="QSpinBox" name="spinBoxCents">
-        <property name="geometry">
-         <rect>
-          <x>550</x>
-          <y>420</y>
-          <width>61</width>
-          <height>22</height>
-         </rect>
-        </property>
-        <property name="minimum">
-         <number>0</number>
-        </property>
-       </widget>
-       <widget class="QSpinBox" name="spinBoxDollars">
-        <property name="geometry">
-         <rect>
-          <x>460</x>
-          <y>420</y>
-          <width>71</width>
-          <height>22</height>
-         </rect>
-        </property>
-        <property name="maximum">
-         <number>1000</number>
-        </property>
-       </widget>
        <widget class="QLineEdit" name="ItemLine">
         <property name="geometry">
          <rect>
@@ -411,57 +379,6 @@
         </property>
         <property name="text">
          <string>Item to Add:</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="labelDot_2">
-        <property name="enabled">
-         <bool>true</bool>
-        </property>
-        <property name="geometry">
-         <rect>
-          <x>210</x>
-          <y>450</y>
-          <width>16</width>
-          <height>49</height>
-         </rect>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>47</width>
-          <height>16777215</height>
-         </size>
-        </property>
-        <property name="text">
-         <string>.</string>
-        </property>
-       </widget>
-       <widget class="QSpinBox" name="spinBoxCents_2">
-        <property name="geometry">
-         <rect>
-          <x>220</x>
-          <y>460</y>
-          <width>61</width>
-          <height>22</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QSpinBox" name="spinBoxDollars_2">
-        <property name="geometry">
-         <rect>
-          <x>130</x>
-          <y>460</y>
-          <width>71</width>
-          <height>22</height>
-         </rect>
-        </property>
-        <property name="maximum">
-         <number>1000</number>
-        </property>
-        <property name="stepType">
-         <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
-        </property>
-        <property name="displayIntegerBase">
-         <number>10</number>
         </property>
        </widget>
        <widget class="QLabel" name="editsouvenirlbl2">
@@ -527,17 +444,30 @@
          <string>Edit Price:</string>
         </property>
        </widget>
-       <widget class="QLabel" name="TESTLABEL">
+       <widget class="QDoubleSpinBox" name="spinBoxDoubleEdit">
         <property name="geometry">
          <rect>
-          <x>30</x>
-          <y>490</y>
-          <width>181</width>
-          <height>16</height>
+          <x>100</x>
+          <y>460</y>
+          <width>91</width>
+          <height>22</height>
          </rect>
         </property>
-        <property name="text">
-         <string>TextLabel</string>
+        <property name="maximum">
+         <double>9999.989999999999782</double>
+        </property>
+       </widget>
+       <widget class="QDoubleSpinBox" name="spinBoxDoubleAdd">
+        <property name="geometry">
+         <rect>
+          <x>460</x>
+          <y>410</y>
+          <width>111</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <double>9999.989999999999782</double>
         </property>
        </widget>
       </widget>
@@ -580,19 +510,19 @@
        <widget class="QTableView" name="Customtourtable">
         <property name="geometry">
          <rect>
-          <x>365</x>
-          <y>40</y>
-          <width>371</width>
-          <height>431</height>
+          <x>10</x>
+          <y>80</y>
+          <width>391</width>
+          <height>331</height>
          </rect>
         </property>
        </widget>
        <widget class="QComboBox" name="Collegecampusdrop">
         <property name="geometry">
          <rect>
-          <x>50</x>
-          <y>40</y>
-          <width>201</width>
+          <x>11</x>
+          <y>5</y>
+          <width>241</width>
           <height>32</height>
          </rect>
         </property>
@@ -600,9 +530,9 @@
        <widget class="QPushButton" name="Backcustomtrip">
         <property name="geometry">
          <rect>
-          <x>50</x>
-          <y>460</y>
-          <width>201</width>
+          <x>30</x>
+          <y>450</y>
+          <width>81</width>
           <height>32</height>
          </rect>
         </property>
@@ -613,11 +543,14 @@
        <widget class="QLabel" name="startcollegelbcustom">
         <property name="geometry">
          <rect>
-          <x>60</x>
-          <y>130</y>
-          <width>261</width>
+          <x>100</x>
+          <y>50</y>
+          <width>301</width>
           <height>21</height>
          </rect>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::Box</enum>
         </property>
         <property name="text">
          <string/>
@@ -626,37 +559,40 @@
        <widget class="QLabel" name="startcollegepick">
         <property name="geometry">
          <rect>
-          <x>60</x>
-          <y>80</y>
-          <width>161</width>
+          <x>10</x>
+          <y>40</y>
+          <width>81</width>
           <height>41</height>
          </rect>
         </property>
         <property name="text">
-         <string>Pick Your Start College</string>
+         <string>Start College:</string>
         </property>
        </widget>
        <widget class="QLabel" name="numberofcollegelbl">
         <property name="geometry">
          <rect>
-          <x>60</x>
-          <y>200</y>
-          <width>261</width>
+          <x>460</x>
+          <y>40</y>
+          <width>91</width>
           <height>41</height>
          </rect>
         </property>
         <property name="text">
-         <string>Number of Colleges added to the tour</string>
+         <string>Total Colleges:</string>
         </property>
        </widget>
        <widget class="QLabel" name="displaynumberofcollege">
         <property name="geometry">
          <rect>
-          <x>60</x>
-          <y>250</y>
+          <x>550</x>
+          <y>54</y>
           <width>58</width>
           <height>16</height>
          </rect>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::Box</enum>
         </property>
         <property name="text">
          <string/>
@@ -665,14 +601,37 @@
        <widget class="QPushButton" name="startcustomtrip">
         <property name="geometry">
          <rect>
-          <x>60</x>
-          <y>290</y>
-          <width>181</width>
+          <x>500</x>
+          <y>440</y>
+          <width>81</width>
           <height>32</height>
          </rect>
         </property>
         <property name="text">
-         <string>Start Algorithm</string>
+         <string>Create Trip</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton">
+        <property name="geometry">
+         <rect>
+          <x>590</x>
+          <y>440</y>
+          <width>93</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>RESET</string>
+        </property>
+       </widget>
+       <widget class="QTextBrowser" name="customTripLabel">
+        <property name="geometry">
+         <rect>
+          <x>415</x>
+          <y>80</y>
+          <width>271</width>
+          <height>331</height>
+         </rect>
         </property>
        </widget>
       </widget>
@@ -690,8 +649,8 @@
        <widget class="QComboBox" name="shortesttripcombo">
         <property name="geometry">
          <rect>
-          <x>30</x>
-          <y>90</y>
+          <x>60</x>
+          <y>20</y>
           <width>261</width>
           <height>32</height>
          </rect>
@@ -700,14 +659,14 @@
        <widget class="QLabel" name="pickcampuslbl">
         <property name="geometry">
          <rect>
-          <x>40</x>
-          <y>30</y>
-          <width>191</width>
+          <x>20</x>
+          <y>20</y>
+          <width>41</width>
           <height>21</height>
          </rect>
         </property>
         <property name="text">
-         <string>Pick your first campus</string>
+         <string>Start:</string>
         </property>
        </widget>
        <widget class="QLabel" name="displaynumberofcampus">
@@ -731,6 +690,9 @@
           <width>231</width>
           <height>22</height>
          </rect>
+        </property>
+        <property name="maximum">
+         <number>10</number>
         </property>
        </widget>
        <widget class="QLabel" name="numberofcampuses">
@@ -795,30 +757,17 @@
        </widget>
       </widget>
       <widget class="QWidget" name="Souvenirtourpage">
-       <widget class="QLabel" name="Souvenirtriplbl">
-        <property name="geometry">
-         <rect>
-          <x>20</x>
-          <y>60</y>
-          <width>141</width>
-          <height>71</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Pick Your Souvenirs</string>
-        </property>
-       </widget>
        <widget class="QPushButton" name="doneSouvenir">
         <property name="geometry">
          <rect>
-          <x>30</x>
+          <x>610</x>
           <y>470</y>
-          <width>151</width>
+          <width>71</width>
           <height>32</height>
          </rect>
         </property>
         <property name="text">
-         <string>Done</string>
+         <string>Exit</string>
         </property>
        </widget>
        <widget class="QTableWidget" name="SouvenirTableWidget">
@@ -827,10 +776,10 @@
         </property>
         <property name="geometry">
          <rect>
-          <x>160</x>
-          <y>-10</y>
-          <width>531</width>
-          <height>371</height>
+          <x>10</x>
+          <y>10</y>
+          <width>691</width>
+          <height>261</height>
          </rect>
         </property>
         <property name="sizeAdjustPolicy">
@@ -840,57 +789,70 @@
          <set>QAbstractItemView::NoEditTriggers</set>
         </property>
        </widget>
-       <widget class="QWidget" name="layoutWidget">
+       <widget class="QPushButton" name="CalSouv">
         <property name="geometry">
          <rect>
-          <x>20</x>
-          <y>120</y>
-          <width>131</width>
-          <height>141</height>
+          <x>10</x>
+          <y>290</y>
+          <width>129</width>
+          <height>28</height>
          </rect>
         </property>
-        <layout class="QVBoxLayout" name="verticalLayout_8">
-         <item>
-          <widget class="QPushButton" name="CalSouv">
-           <property name="text">
-            <string>Calculate</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="Clearcalc">
-           <property name="text">
-            <string>Clear</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
+        <property name="text">
+         <string>Purchase</string>
+        </property>
        </widget>
-       <widget class="QWidget" name="layoutWidget">
+       <widget class="QPushButton" name="Clearcalc">
         <property name="geometry">
          <rect>
-          <x>360</x>
-          <y>380</y>
-          <width>201</width>
-          <height>18</height>
+          <x>150</x>
+          <y>290</y>
+          <width>129</width>
+          <height>28</height>
          </rect>
         </property>
-        <layout class="QHBoxLayout" name="horizontalLayout_2">
-         <item>
-          <widget class="QLabel" name="grandlbl">
-           <property name="text">
-            <string>Grand Total is:</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="grandTotal">
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-         </item>
-        </layout>
+        <property name="text">
+         <string>Clear</string>
+        </property>
+       </widget>
+       <widget class="QTextBrowser" name="textBrowserReceipt">
+        <property name="geometry">
+         <rect>
+          <x>310</x>
+          <y>290</y>
+          <width>261</width>
+          <height>221</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="grandTotal">
+        <property name="geometry">
+         <rect>
+          <x>590</x>
+          <y>350</y>
+          <width>96</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::Box</enum>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="grandlbl">
+        <property name="geometry">
+         <rect>
+          <x>610</x>
+          <y>320</y>
+          <width>51</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TOTAL:</string>
+        </property>
        </widget>
       </widget>
       <widget class="QWidget" name="collegedisplaypage">
@@ -917,7 +879,7 @@
      <x>0</x>
      <y>0</y>
      <width>732</width>
-     <height>22</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>

@@ -89,6 +89,10 @@ private slots:
 
     void on_Donetosouv_clicked();
 
+    void on_viewCollegesComboBox_activated(const QString &arg1);
+
+    void on_pushButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     Controller *m_controller;

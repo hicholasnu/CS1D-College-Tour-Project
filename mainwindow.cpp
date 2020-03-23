@@ -4,7 +4,9 @@
    static QList<QString> tour;
    static QList<Souvenir*>tourSouv;
    static QList<QString> output;
-   static float totalSouvenirprice = 0;
+   static QList<QString> outputReceipt;
+   static QString tripList;
+   static double totalSouvenirprice = 0;
    static int count = 0;
 
 MainWindow::MainWindow(Controller *controller, QWidget *parent)
@@ -108,12 +110,6 @@ void MainWindow::on_logout_clicked()
     page = 0;
 }
 
-void MainWindow::on_viewdistance_clicked()
-{
-    ui->collegedisplay->setModel(m_controller->getsaddlebackCollegeQueryModel());
-    ui->collegedisplay->resizeColumnsToContents();
-}
-
 void MainWindow::on_displaycollege_clicked()
 {
     ui->stackedWidget->setCurrentWidget(ui->viewcollegedistance);
@@ -132,8 +128,7 @@ void MainWindow::on_AddSouvenirbtn_clicked()
 
         QMessageBox::warning(this, "Error", "Item has no name.");
     }
-    else if(ui->spinBoxDollars->value() == 0 &&
-            ui->spinBoxCents->value() == 0) {
+    else if(ui->spinBoxDoubleAdd->value() == 0.00) {
 
         QMessageBox::warning(this, "Error", "Item can not cost $0.00.");
     }
@@ -142,18 +137,15 @@ void MainWindow::on_AddSouvenirbtn_clicked()
         QString Item;
         QString Price;
         QString College;
-        double intPrice;
 
         College = ui->souvenircomboBox->currentText();
         Item = ui->ItemLine->text();
-        intPrice = ui->spinBoxDollars->value() + (ui->spinBoxCents->value() / 100.0);
-        Price = QString::number(intPrice);
+        Price = QString::number(ui->spinBoxDoubleAdd->value());
 
         m_controller->createSouvenir(College,Item,Price);
 
         ui->ItemLine->clear();
-        ui->spinBoxDollars->setValue(0);
-        ui->spinBoxCents->setValue(0);
+        ui->spinBoxDoubleAdd->setValue(0);
 
         ui->SouvenirView->setModel(m_controller->getSouvenirQueryModel(ui->souvenircomboBox->currentText()));
         ui->SouvenirView->resizeColumnsToContents();
@@ -179,8 +171,6 @@ void MainWindow::on_SouvenirView_activated(const QModelIndex &index)
         name = index.data().toString();
         selectCollege = ui->souvenircomboBox->currentText();
         double price;
-        int dollars;
-        int cents;
         QString Price;
         QString college;
 
@@ -196,12 +186,8 @@ void MainWindow::on_SouvenirView_activated(const QModelIndex &index)
                 price = qry.value(2).toDouble();
                 Price = qry.value(2).toString();
 
-                dollars = int(price);
-                cents = int((price - int(price)) * 100);
-                ui->spinBoxDollars_2->setValue(int(dollars));
-                ui->spinBoxCents_2->setValue(int(cents));
+                ui->spinBoxDoubleEdit->setValue(price);
                 ui->editsouvenirlbl1->setText(college);
-                ui->TESTLABEL->setText(Price);
             }
         }
     }
@@ -227,8 +213,7 @@ void MainWindow::on_Deletesouvenirbtn_clicked()
             m_controller->deleteSouvenir(name);
             ui->editsouvenirlbl1->setText("College");
             ui->editsouvenirlbl2->setText("Item Name");
-            ui->spinBoxDollars_2->setValue(0);
-            ui->spinBoxCents_2->setValue(0);
+            ui->spinBoxDoubleEdit->setValue(0);
 
             ui->SouvenirView->setModel(m_controller->getSouvenirQueryModel(ui->souvenircomboBox->currentText()));
             ui->SouvenirView->resizeColumnsToContents();
@@ -244,25 +229,20 @@ void MainWindow::on_EditSouvenirbtn_clicked()
 
         QMessageBox::warning(this, "Error", "No item selected.");
     }
-    else if(ui->spinBoxDollars_2->value() == 0 &&
-            ui->spinBoxCents_2->value() == 0) {
+    else if(ui->spinBoxDoubleEdit->value() == 0.00) {
 
         QMessageBox::warning(this, "Error", "Item can not cost $0.00.");
     }
     else {
 
         QString Price;
-        double doublePrice;
-
-        doublePrice = ui->spinBoxDollars_2->value() + (ui->spinBoxCents_2->value() / 100.0);
-        Price = QString::number(doublePrice);
+        Price = QString::number(ui->spinBoxDoubleEdit->value());
 
         m_controller->updateSouvenir(ui->editsouvenirlbl2->text(),ui->editsouvenirlbl1->text(), Price);
 
         ui->editsouvenirlbl1->setText("College");
         ui->editsouvenirlbl2->setText("Item Name");
-        ui->spinBoxDollars_2->setValue(0);
-        ui->spinBoxCents_2->setValue(0);
+        ui->spinBoxDoubleEdit->setValue(0);
 
         ui->SouvenirView->setModel(m_controller->getSouvenirQueryModel(ui->souvenircomboBox->currentText()));
         ui->SouvenirView->resizeColumnsToContents();
@@ -280,10 +260,23 @@ void MainWindow::on_viewallcolleges_clicked()
      ui->collegedisplay->resizeColumnsToContents();
 }
 
+void MainWindow::on_viewdistance_clicked()
+{
+    ui->collegedisplay->setModel(m_controller->getsaddlebackCollegeQueryModel());
+    ui->collegedisplay->resizeColumnsToContents();
+}
+
+void MainWindow::on_viewCollegesComboBox_activated(const QString &arg1)
+{
+    ui->collegedisplay->setModel(m_controller->getCollegeQueryModel1(arg1));
+    ui->collegedisplay->resizeColumnsToContents();
+}
+
 void MainWindow::on_loadcolleges_clicked()
 {
     m_controller->readcollegeFile();
     additemstocombobox();
+    ui->spinBox->setRange(0,12);
 }
 
 void MainWindow::on_Loadsouvenirfile_clicked()
@@ -311,6 +304,7 @@ void MainWindow::additemstocombobox()
     colleges.removeDuplicates();
     ui->Collegecampusdrop->addItems(colleges);
     ui->shortesttripcombo->addItems(colleges);
+    ui->viewCollegesComboBox->addItems(colleges);
     ui->souvenircomboBox->addItems(colleges);
 //    ui->comboBoxChooseCollege->addItems(colleges);
 }
@@ -341,7 +335,7 @@ void MainWindow::on_Backcustomtrip_clicked()
 void MainWindow::on_CustomTrip_clicked()
 {
     ui->stackedWidget->setCurrentWidget(ui->CustomTrippage);
-    ui->Customtourtable->setModel(m_controller->getCollegeQuerystartonlyModel());
+    //ui->Customtourtable->setModel(m_controller->getCollegeQuerystartonlyModel());
     ui->Customtourtable->resizeColumnsToContents();
     ui->startcollegelbcustom->setText(ui->Collegecampusdrop->itemText(0));
 }
@@ -349,6 +343,8 @@ void MainWindow::on_CustomTrip_clicked()
 void MainWindow::on_Collegecampusdrop_currentIndexChanged(const QString &arg1)
 {
     ui->startcollegelbcustom->setText(arg1);
+    ui->Customtourtable->setModel(m_controller->getCollegeQueryModel1(arg1));
+    on_pushButton_clicked();
 }
 
 
@@ -360,10 +356,13 @@ void MainWindow::on_Customtourtable_activated(const QModelIndex &index)
     {
         name = index.data().toString();
         tour.append(name);
+        tripList.append(name);
+        tripList.append('\n');
         count++;
         ui->displaynumberofcollege->setNum(count);
+        ui->Customtourtable->hideRow(index.row());
+        ui->customTripLabel->setText(tripList);
     }
-
 }
 
 void MainWindow::on_startcustomtrip_clicked()
@@ -511,13 +510,30 @@ void MainWindow::on_souvenircomboBox_activated(const QString &arg1)
 
 void MainWindow::on_CalSouv_clicked()
 {
+    ui->textBrowserReceipt->clear();
 
     for(int i = 0; i< tourSouv.count(); i++)
     {
         int val = static_cast<QSpinBox*>(ui->SouvenirTableWidget->cellWidget(i,3))->value();
         QTableWidgetItem *price = ui->SouvenirTableWidget->item(i,2);
-        totalSouvenirprice = totalSouvenirprice + (price->text().toFloat()*val);
+        totalSouvenirprice = totalSouvenirprice + (price->text().toDouble()*val);
     }
+
+    int quant;
+
+    for (int i = 0; i < ui->SouvenirTableWidget->rowCount(); i++) {
+
+        quant = static_cast<QSpinBox*>(ui->SouvenirTableWidget->cellWidget(i,3))->value();
+
+        if (quant > 0) {
+
+            ui->textBrowserReceipt->append(ui->SouvenirTableWidget->item(i,0)->text());
+            ui->textBrowserReceipt->append(ui->SouvenirTableWidget->item(i,1)->text());
+            ui->textBrowserReceipt->append(ui->SouvenirTableWidget->item(i,2)->text());
+            ui->textBrowserReceipt->append(QString::number(quant));
+        }
+    }
+
     ui->grandTotal->setNum(totalSouvenirprice);
     totalSouvenirprice = 0;
 }
@@ -527,7 +543,9 @@ void MainWindow::on_doneSouvenir_clicked()
     ui->stackedWidget->setCurrentWidget(ui->Studentcustomertrip);
     tourSouv.clear();
     ui->SouvenirTableWidget->clear();
+    ui->textBrowserReceipt->clear();
     on_Clearcalc_clicked();
+    on_pushButton_clicked();
 }
 
 void MainWindow::on_Clearcalc_clicked()
@@ -538,9 +556,31 @@ void MainWindow::on_Clearcalc_clicked()
         box->setValue(0);
     }
     ui->grandTotal->clear();
+    ui->textBrowserReceipt->clear();
 }
 void MainWindow::on_Donetosouv_clicked()
 {
      ui->stackedWidget->setCurrentWidget(ui->Souvenirtourpage);
      ui->collegetableitem->clear();
 }
+
+
+void MainWindow::on_pushButton_clicked()
+{
+    for (int i = 0; i < ui->Customtourtable->height(); i++) {
+
+        ui->Customtourtable->showRow(i);
+    }
+
+    ui->customTripLabel->clear();
+    tripList.clear();
+
+
+    tour.clear();
+    count = 0;
+    ui->displaynumberofcollege->setNum(count);
+}
+
+
+
+

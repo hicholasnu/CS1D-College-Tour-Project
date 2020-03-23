@@ -36,7 +36,9 @@ public:
     QSqlQueryModel *getsaddlebackCollegeQueryModel();
     QSqlQueryModel *getSouvenirQueryModel(QString souvenir);
     QSqlQueryModel *getCollegeQueryModel();
+    QSqlQueryModel *getCollegeQueryModel1(QString college);
     QSqlQueryModel *getCollegeQuerystartonlyModel();
+    QSqlQueryModel *getCollegeQuerystartonlyModel1(QString college);
     bool readcollegeFile();
     bool readsouvenirFile();
     void loadColleges();
